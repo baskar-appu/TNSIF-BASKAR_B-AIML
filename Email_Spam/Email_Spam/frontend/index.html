@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mailguard | Email Spam Detector</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="page-shell">
+		<header class="topbar">
+			<a class="brand" href="index.html" aria-label="Mailguard home">
+				<span class="brand-mark">M</span>
+				<span>mailguard</span>
+			</a>
+			<div class="status-pill"><span class="status-dot"></span> Model ready</div>
+		</header>
+
+		<main class="main-content">
+			<section class="intro">
+				<p class="eyebrow">EMAIL SECURITY / REAL-TIME CHECK</p>
+				<h1>Know what is hiding<br><em>in your inbox.</em></h1>
+				<p class="intro-copy">Paste an email below and let the classifier spot suspicious language before you click.</p>
+			</section>
+
+			<section class="checker-layout" aria-label="Spam detection tool">
+				<div class="composer-panel">
+					<div class="panel-heading">
+						<div>
+							<p class="panel-kicker">01 / MESSAGE</p>
+							<h2>Inspect an email</h2>
+						</div>
+						<span id="character-count">0 characters</span>
+					</div>
+
+					<textarea id="email-text" placeholder="Paste the email message here..." aria-label="Email message"></textarea>
+
+					<div class="composer-footer">
+						<div class="examples">
+							<span>Try an example</span>
+							<button type="button" class="example-button" data-example="spam">Suspicious</button>
+							<button type="button" class="example-button" data-example="safe">Everyday</button>
+						</div>
+						<button id="check-button" class="check-button" type="button">
+							<span>Check email</span>
+							<span class="button-arrow">&#8594;</span>
+						</button>
+					</div>
+					<p id="error-message" class="error-message" role="alert"></p>
+				</div>
+
+				<aside id="result-panel" class="result-panel empty-state" aria-live="polite">
+					<div class="result-icon">&#10003;</div>
+					<p class="panel-kicker">02 / VERDICT</p>
+					<h2 id="result-title">Your result<br>will appear here.</h2>
+					<p id="result-description">Your message stays in this view while the model checks its patterns.</p>
+					<div class="confidence-wrap" hidden>
+						<div class="confidence-label"><span>Confidence</span><strong id="confidence-value">--</strong></div>
+						<div class="confidence-track"><span id="confidence-bar"></span></div>
+					</div>
+				</aside>
+			</section>
+
+			<section class="how-it-works">
+				<div class="section-rule"></div>
+				<div class="how-copy">
+					<p class="panel-kicker">HOW IT WORKS</p>
+					<p>The trained model reads the words and patterns in your message, then returns a prediction with its confidence.</p>
+				</div>
+				<div class="signal-list">
+					<div><span class="signal-number">01</span><span>Paste</span></div>
+					<div><span class="signal-number">02</span><span>Analyze</span></div>
+					<div><span class="signal-number">03</span><span>Decide</span></div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer">
+			<span>MAILGUARD / LOCAL CLASSIFIER</span>
+			<span>API: 127.0.0.1:8000</span>
+		</footer>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
